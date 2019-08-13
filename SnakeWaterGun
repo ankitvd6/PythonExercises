@@ -1,0 +1,83 @@
+import random
+
+l = ["snake","water","gun"]
+
+count_user = 0
+count_comp = 0
+count_draw = 0
+count_invalid = 0
+turns = 3
+while turns > 0:
+    print("                                    ")
+    user = input("Select any one snake,water or gun : ")
+    comp = random.choice(l)
+    print(f"Computer chose : {comp}")
+    if user == "snake" and comp == "water":
+        print("___________________________")
+        print("                           ")
+        print("||| Hurray !! You won  |||")
+        print("___________________________")
+        count_user += 1
+        turns -= 1
+    elif user == "snake" and comp =="gun":
+        print("___________________________")
+        print("                           ")
+        print("Computer won ")
+        print("___________________________")
+        count_comp += 1
+        turns -= 1
+
+    elif user == "water" and comp == "gun":
+        print("___________________________")
+        print("                           ")
+        print("||| Hurray !! You won  |||")
+        print("___________________________")
+        count_user += 1
+        turns -= 1
+    elif user == "water" and comp == "snake":
+        print("___________________________")
+        print("                           ")
+        print("Computer won ")
+        print("___________________________")
+        count_comp += 1
+        turns -= 1
+
+    elif user == "gun" and comp == "snake":
+        print("___________________________")
+        print("                           ")
+        print("||| Hurray !! You won  |||")
+        print("___________________________")
+        count_user += 1
+        turns -= 1
+    elif user == "gun" and comp == "water":
+        print("___________________________")
+        print("                           ")
+        print("Computer won ")
+        print("___________________________")
+        count_comp += 1
+        turns -= 1
+    elif user == comp:
+        print("___________________________")
+        print("                           ")
+        print("Same Choice , Draw")
+        print("___________________________")
+        turns -= 1
+        count_draw += 1
+    else:
+        print("___________________________")
+        print("                           ")
+        print("Invalid choice")
+        print("___________________________")
+        count_invalid += 1
+        if count_invalid == 3:
+            print("_______________________________________________________________________")
+            print("                                                                       ")
+            print("You have entered invalid choice 3 times. Please Be Cautious next time!!")
+            break
+
+print("___________________________________________________________________")
+print("_________________________Results___________________________________")
+print("                                                                   ")
+print(f"Computer win count\t: \t{count_comp} \nUser win count\t\t: \t{count_user} \nNumber of Draws\t\t: \t{count_draw}")
+print("___________________________________________________________________")
+print("___________________________________________________________________")
